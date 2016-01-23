@@ -78,8 +78,8 @@ function get_ticket_info($id) {
 
 function common_ticket($vars, $pre) {
 	$options = get_options();
-    $ticketid = $vars['ticketid'];
-    $userid = $vars['userid'];
+	$ticketid = $vars['ticketid'];
+	$userid = $vars['userid'];
 
 	$user = get_client_info($userid);
 	$ticket = get_ticket_info($ticketid);
