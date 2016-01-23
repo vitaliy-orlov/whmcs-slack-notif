@@ -1,20 +1,20 @@
 <?php
 /**
- * @package		WHMCS Ticket notification
- * @author		Orlov Vitaliy
+ * @package	WHMCS Ticket notification
+ * @author	Orlov Vitaliy
  * @copyright	Copyright (c)
- * @version		1.0
+ * @version	1.0
  */
 
 if (!defined('WHMCS'))
-		die('This file cannot be accessed directly');
+	die('This file cannot be accessed directly');
 
 function get_options() {
 	return array(
 		'url' => 'https://slack.com/api/chat.postMessage',
 		'channel_tickets' => '<your channel id>',
-    'token' => '<access token>',
-    'admin_user' => '<admin login>',
+		'token' => '<access token>',
+    	'admin_user' => '<admin login>',
 		'whmcs_host' => '<whmcs host name'
   );
 }
@@ -78,8 +78,8 @@ function get_ticket_info($id) {
 
 function common_ticket($vars, $pre) {
 	$options = get_options();
-  $ticketid = $vars['ticketid'];
-  $userid = $vars['userid'];
+    $ticketid = $vars['ticketid'];
+    $userid = $vars['userid'];
 
 	$user = get_client_info($userid);
 	$ticket = get_ticket_info($ticketid);
@@ -91,7 +91,7 @@ function common_ticket($vars, $pre) {
 
 	$attach = [array('title' => $ticket['subject'], 'text' => $url)];
 
-  send_mesage($options['channel_tickets'], $msg, $attach);
+    send_mesage($options['channel_tickets'], $msg, $attach);
 }
 
 function on_ticketopen($vars) {
