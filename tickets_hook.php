@@ -14,7 +14,7 @@ function get_options() {
 		'url' => 'https://slack.com/api/chat.postMessage',
 		'channel_tickets' => '<your channel id>',
 		'token' => '<access token>',
-    	'admin_user' => '<admin login>',
+		'admin_user' => '<admin login>',
 		'whmcs_host' => '<whmcs host name'
   );
 }
@@ -26,10 +26,10 @@ function write_log($message) {
 }
 
 function send_mesage($channel, $message, $attachment) {
-  $options = get_options();
-  $ch = curl_init($options['url']);
+	$options = get_options();
+	$ch = curl_init($options['url']);
 
-  $json_data = array(
+	$json_data = array(
 		'as_user' => 'true',
 		'token' => $options['token'],
 		'channel' => $channel,
